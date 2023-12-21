@@ -51,6 +51,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'rql.middlewares.LoggerMiddleware.LoggerMiddleware'
 ]
 
 ROOT_URLCONF = 'rql.urls'
@@ -120,21 +121,10 @@ USE_I18N = True
 USE_TZ = True
 
 REST_FRAMEWORK = {
-    # "DEFAULT_PERMISSION_CLASSES": [
-    #     "rest_framework.permissions.AllowAny",
-    # ],
     "EXCEPTION_HANDLER": "rql.exception_handler.handle_errors",
     "DEFAULT_RENDERER_CLASSES": [
         "rest_framework.renderers.JSONRenderer",
     ],
-    # 'DEFAULT_THROTTLE_CLASSES': [
-    #     'qlblog.throttle.GetApiThrottle',
-    #     'qlblog.throttle.PostApiThrottle',
-    # ],
-    # 'DEFAULT_THROTTLE_RATES': {
-    #     'get_apis': '400/day',
-    #     'post_apis': '5/day',
-    # }
 }
 
 # Static files (CSS, JavaScript, Images)
